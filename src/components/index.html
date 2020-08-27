@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Google Auth Demo</title>
+   <meta name="google-signin-client_id" content="473525258129-tfubcdl9em6em7hp235grsrhbjrv60pf.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+<script>
+    function onSignIn(googleUser) {
+      // get user profile information
+      console.log('User is:'+JSON.stringify(googleUser.getBasicProfile()))
+    }
+	function signOut() {
+  gapi.auth2.getAuthInstance().signOut().then(function() {
+    console.log('user signed out')
+  })
+}
+  </script>
+  <h1>Welcome to the Demo</h1>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <button onclick="signOut()">Sign out</button>
+</body>
+</html>
